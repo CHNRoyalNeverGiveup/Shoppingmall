@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--定义过滤器-->
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+    </filter>
+    <!--定义过滤器拦截URL地址-->
+    <filter-mapping>
+        <!--过滤器的名称-->
+        <filter-name>sitemesh</filter-name>
+        <!--过滤器负责拦截的URL-->
+        <!-- /* 会把所有的请求拦截下来 -->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

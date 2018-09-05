@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Shoppingmall:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Shoppingmall_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Shoppingmall/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Shoppingmall" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jackson-annotations-2.5.0" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.26" />
+          <element id="library" level="project" name="gson-2.8.5" />
+          <element id="library" level="project" name="sitemesh-2.4.2" />
+          <element id="library" level="project" name="jstl-1.2" />
+          <element id="library" level="project" name="commons-fileupload-1.2.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

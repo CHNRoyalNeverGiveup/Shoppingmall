@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<decorators defaultdir="/templat/">
+    <!--定义不过滤的页面-->
+    <excludes>
+
+        <pattern>/adminTemplate/*</pattern>
+    </excludes>
+    <!-- 定义需要修饰的页面 -->
+    <decorator name="book" page="index.jsp">
+        <!-- 定义需要修饰的文件夹-->
+        <pattern>/jsp/*</pattern>
+    </decorator>
+</decorators>

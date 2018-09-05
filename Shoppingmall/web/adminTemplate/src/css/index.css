@@ -1,0 +1,570 @@
+
+
+a{
+   	color:#A7B1C2;
+    text-decoration: none;
+   }
+.div1:hover{   /*鼠标移到到事件时变手指标*/
+            cursor:pointer;
+        }
+.top{
+	width:1345px;
+	height:2px;
+	background-color:#3CB371;
+}
+.div{
+    width:1340px;
+    height:800px;
+    margin:auto;
+    background-color: #F5F5F5;
+}
+.div1{
+    width: 200px;
+    height: 1050px;
+    float: left;
+    background-color: #2f4050;
+}
+.div2{              /*退出登录*/
+    width: 1140px;
+    height: 50px;
+    background-color: #fdfdfd;
+    text-align: left;
+   	color:#a7b1c2;
+   	 position:relative;
+	left:200px;
+  	
+}
+
+.div_lefttop{
+	height:130px;
+	width:200px;
+	background-color:#293846;	
+}
+.div_lefttopimg{
+	border-radius:300px;
+	height:100px;
+	width:100px;
+	position:relative;
+	top:20px;
+	left:45px;
+	
+}
+img{
+	border-radius:300px;
+	height:100px;
+	width:100px;
+	border:2px solid gray;
+}
+
+.div_menu{
+	float:inline;
+	color:#A7B1C2;
+	text-align:left;
+	font-size:14px;
+	font-wight:900;
+	padding-top:6px;
+	background-color:#2f4050;	
+	border-top:1px solid #30373c;
+	padding-bottom:5px;
+}
+.div_menutwo{
+	height:25px;
+	width:200px;
+	float:inline;
+	padding-top:6px;
+	color:#A7B1C2;
+	text-align:center;
+	border-top:1px solid #30373c;
+	borer-bottom:1px solid #30373c;	
+	font-size:14px;
+	background-color:#2f4050;	
+}
+.div_menutwo:hover{	
+	color:#ffffff;	
+	background-color:#293846;
+	
+}
+#nh{
+	width:150px;
+	position: relative;	
+	top:15px;
+	right:150px;
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:15px;
+	color:#999;
+	float:left;
+}
+
+.size{                   /*退出登录字体大小*/
+	width:100px;
+	 position: relative;	
+	top:15px;
+	left:60px;
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:15px;
+	float:left;
+}
+#butt{
+		
+	    background-color: #1ab394;
+	    border:1px solid #f5f5f5;
+	    width:40px;
+	    height:30px;
+	    float:left;
+	    color:#ffffff;
+	    position: relative;
+		right:180px;
+		top:10px;
+		font-size:18px;
+		font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#dtime{
+	width:600px;
+	height:30px;
+	color:#000000;
+	text-align:left;
+	float:left;
+	position:relative;
+	
+	top:10px;
+	
+	font-size:22px;
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+
+.div3{             /*右窗体*/    
+    width: 1139px;
+    height: 1000px;
+    background-color: #f5f5f5;
+    
+}
+
+.err{                  /*第一个正方形*/  
+	width:250px;
+	height:110px;
+	background-color: #ffffff;
+	position: relative;
+	top:10px;
+	left:20px;
+	float: left;
+	border:10xp solid #ffffff;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+.err_1{
+	width:250px;
+	height:65px;
+     background-color: #F05033;
+     border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:45px;
+	color:#ffffff;
+	text-align:center;
+	 border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+}
+.err_2{
+	width:250px;
+	height:45px;
+     border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:45px;
+	color:#ffffff;
+	 border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+}
+#err_aleft{
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:15px;
+	color:#000000;
+	float:left;
+	position: relative;
+	top:10px;
+	left:20px;
+}
+#err_aright{
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:16px;
+	color:#ff0000;
+	position: relative;
+	top:10px;
+	left:110px;
+	
+}
+#err_aright2{
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:15px;
+	color:#3498DB;
+	position: relative;
+	top:10px;
+	left:120px;
+	
+}
+#err_aright3{
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:15px;
+	color:#8E44AD;
+	position: relative;
+	top:10px;
+	left:140px;
+	
+}
+#err_aright4{
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:15px;
+	color:#1FA67A;
+	position: relative;
+	top:10px;
+	left:130px;
+	
+}
+.err_aright4{
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:15px;
+	color:#1FA67A;
+	position: relative;
+	top:-20px;
+	left:130px;
+	
+}
+.err2{                    /*第二个正方形*/ 
+	width:250px;
+	height:110px;
+	background-color: #ffffff;
+	float: left;
+	position: relative;
+	top:10px;
+	left:60px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+.err2_1{
+	width:250px;
+	height:65px;
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:45px;
+	color:#ffffff;
+	text-align:center;
+     background-color: #3498DB;
+     border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+}
+.err2_2{
+	width:250px;
+	height:45px;
+     border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:45px;
+	color:#ffffff;
+	 border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+}
+.err3{                    /*第三个正方形*/ 
+	width:250px;
+	height:110px;
+	background-color: #ffffff;
+	float: left;
+	position: relative;
+	top:10px;
+	left:100px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+.err3_1{
+	width:250px;
+	height:65px;
+     background-color:#8E44AD;
+     border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:45px;
+	color:#ffffff;
+	text-align:center;
+}
+.err4{                            /*第四个正方形*/ 
+	width:250px;
+	height:110px;
+	background-color: #ffffff;
+	float: left;
+	position: relative;
+	top:10px;
+	left:130px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+.err4_1{
+	width:250px;
+	height:65px;
+     background-color:#1FA67A;
+     border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:45px;
+	color:#ffffff;
+	text-align:center;
+}
+
+.err_a{
+	font-family:微软雅黑;
+	font-size:18px;
+	color:red;
+}
+
+
+h4{	
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:15px;
+	position: relative;
+	bottom:10px;
+	left:10px;
+}
+
+
+
+
+#fjxx{
+	width:266px;
+	height:30px;
+	background-color:#f5f5f5;
+	color:#808080;
+	border:1px solid #ddd;
+	text-align:center;
+	position: relative;
+	right:1px;
+}
+.top_err{
+	width:1139px;
+	height:173px;
+	 position: relative;
+	top:10px;
+}
+.Room_form{             /*右窗体*/
+	width:1110px;
+	height:620px;
+	border:1px solid #ddd;
+	position: relative;
+	left:20px;
+	top:30px;
+	 border-top-left-radius: 8px;   
+	border-top-right-radius: 8px; 
+	
+}
+.Rtype{                /*房间类型*/
+	width:1108px;
+	height:35px;
+	background-color: #f5f5f5;
+	border:1px solid #ddd;
+	border-top:1px solid #f5f5f5;
+	border-left:1px solid #f5f5f5;
+	border-right:1px solid #f5f5f5;
+	 border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+}
+.Room{
+	width:840px;
+	height:587px;
+	border:1px solid #ddd;
+	float:left;
+	background-color: #fdfdfd;
+	border-top:1px solid #f5f5f5;
+	border-left:1px solid #f5f5f5;
+
+	
+}
+.state{
+	width:266px;
+	height:586px;
+	border:1px solid #ddd;
+	border-left-color:#fdfdfd;
+	
+	border-right-color:#fdfdfd;
+	background-color: #fdfdfd;
+	float: left;
+	position: relative;
+	left:0px;
+}
+.zt{
+	    font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	    font-size:15px;
+}
+
+#All{
+	width:80px;
+	height:25px;
+	border:1px solid #ddd; 
+	background-color: #ffff80;
+	margin-left:30px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+#Habitable{
+	width:80px;
+	height:25px;
+	border:1px solid #ddd;
+	background-color: #0080ff;
+	margin-left:30px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+#Reservation{
+	width:80px;
+	height:25px;
+	border:1px solid #ddd;
+	background-color: #ff8000;
+	margin-left:30px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+#Alreadyliving{
+	width:80px;
+	height:25px;
+	border:1px solid #ddd;
+	background-color: #00ffff;
+	margin-left:30px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+#Maintenance{
+	width:80px;
+	height:25px;
+	border:1px solid #ddd;
+	background-color: #c0c0c0;
+	margin-left:30px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+    
+}
+.cx{
+	width:190px;
+	height:25px;
+	border:1px solid #c0c0c0;
+	position: relative;
+	left:2px;
+	top:2px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+}
+#kscx{
+	width:63px;
+	height:30px;
+	border:1px solid #ddd;
+	background-color:#c0c0c0;
+	color:#ffffff;
+	position: relative;
+	top:2px;
+	border-top-left-radius: 5px;   
+	border-top-right-radius: 5px; 
+ 	border-bottom-right-radius:5px;  
+	border-bottom-left-radius:  5px;
+}
+.sum{
+	width:50px;
+	height:20px;
+	border:1px solid #fdfdfd;
+	background-color:#fdfdfd;
+	
+	position: relative;
+	left:170px;
+	bottom:23px;
+}
+
+li{
+	  font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	    font-size:16px;
+	    height:30px;
+	     list-style: none;  /*去除排序号或黑点*/
+}
+.RInfo{
+	width:265px;
+	height:369px;
+	border-left-color:#ffffff;
+	border-right-color:#ffffff;
+	border-bottom-color:#ffffff;
+	
+}
+
+
+/*房间类型按钮*/
+#putType{
+	width:70px;
+	height:30px;
+	border:1px solid gray;
+	background-color: gray;
+	color:#000000;
+	position: relative;
+	top:2px;
+	left:1px;
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	color:#ffffff;
+	border-top-left-radius: 7px;   
+	border-top-right-radius: 7px; 
+ 	border-bottom-right-radius:7px;  
+	border-bottom-left-radius:  7px;
+}
+
+
+/*小房子*/
+.Room_1{
+	text-align:center;
+	width:130px;
+	height:110px;
+	background-color: #c0c0c0;
+	border:3px solid #ffffff;
+	font-size:15px;
+	position: relative;
+	left:10px;
+	top:10px;
+	float: left;
+} 
+.fh{        /*房号*/
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	
+	background-color:#0080ff;
+	height:25px;
+}
+.lx{            /*房间类型*/
+	padding:5px;
+	font-family: "Microsoft YaHei","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	position: relative;
+	top:5px;
+}
+.jg{
+	color:red;
+	position: relative;
+	top:10px;
+}
+
+

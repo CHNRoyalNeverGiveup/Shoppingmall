@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+</head>
+<style>
+    .divtop{
+        width: 1113px; height: 40px;border: 1px solid #b7d5df;line-height: 40px;margin:auto;margin-top:5px;
+    }
+    .layui-table-box, .layui-table-view{
+        margin:auto;
+    }
+</style>
+<body>
+<div class="divtop">
+    <div class="layui-form-item layui-form" >
+        <div class="layui-inline" >
+            <label class="layui-form-label" >付款类型:</label>
+            <div class="layui-input-inline">
+                <select name="quiz" lay-verify="selecttype" lay-search="" lay-filter="selecttype" id="selecttype">
+                   <option value="已付款">已付款</option>
+                   <option value="未付款">未付款</option>
+                   <option value="交易完成">交易完成</option>
+                </select>
+            </div>
+        </div>
+        订单编号：
+        <div class="layui-inline" >
+            <input class="layui-input" name="name" placeholder="请输入订单编号" id="oid" autocomplete="off">
+        </div>
+        <div class="layui-inline">
+            <button class="layui-btn layui-btns layui-btn-normal" id="selectpid" data-type="getCheckData" >查询</button>
+        </div>
+
+    </div>
+</div>
+<table id="demo" lay-filter="demo"  ></table>
+<script src="plugins/layui/layui.js" charset="utf-8"></script>
+<script src="plugins/layui/jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        var table=null;
+        layui.use('table', function(){
+            var index = layer.load(2, {time: 10*100}); //又换了种风格，并且设定最长等待10秒
+            table= layui.table;
+            //进行渲染
+            table.render({
+                elem: '#demo'
+                ,height: 471
+                ,width: 1113
+                ,page:true
+                ,url: '/OrderIndormationweb?action=finall' //数据接口
+                ,cellMinWidth: 120
+                ,cols: [[ //表头
+                    {type:'numbers', title: '序号'}
+                    ,{field: 'oid', title: '订单编号',align:'center'}
+                    ,{field: 'smoney', title: '订单总价', align: 'center'}
+                    ,{field: 'pname', title: '商品名称',align:'center'}
+                    ,{field: 'pprice', title: '商品价格', align: 'center'}
+                    ,{field: 'ostatus', title: '交易状态',align:'center'}
+                    ,{field: 'pstatus', title: '商品状态',align:'center',sort:true}
+                    ,{field: 'unameu', title: '收货人', align:'center',sort:true}
+                    ,{field: 'uphoneu', title: '收货电话', align:'center',sort:true}
+                    ,{field: 'otime', title: '下单时间', align:'center',sort:true}
+                    ,{field: 'osuretime', title: '付款时间', align:'center',sort:true}
+                    ,{field: 'pstatus', title: '商品状态',align:'center',sort:true}
+                    ,{field: 'right', title: '操作',width:'118', align:'center',  toolbar: '#barDemo'}
+                ]]
+                ,id:"idsw"
+            });
+        });
+
+        //进行按付款查询
+        var form;
+        layui.use('form', function() {
+            form = layui.form;
+            form.on('select(selecttype)', function (data) {
+                //进行渲染
+                table.render({
+                    elem: '#demo'
+                    , height: 471
+                    , width: 1113
+                    , page: true
+                    , url: '/OrderIndormationweb?action=finall&ostatus=' + data.value //数据接口
+                    , cellMinWidth: 120
+                    , cols: [[ //表头
+                        {type: 'numbers', title: '序号'}
+                        , {field: 'oid', title: '订单编号', align: 'center'}
+                        , {field: 'smoney', title: '订单总价', align: 'center'}
+                        , {field: 'pname', title: '商品名称', align: 'center'}
+                        , {field: 'pprice', title: '商品价格', align: 'center'}
+                        , {field: 'ostatus', title: '交易状态', align: 'center'}
+                        , {field: 'pstatus', title: '商品状态', align: 'center', sort: true}
+                        , {field: 'unameu', title: '收货人', align: 'center', sort: true}
+                        , {field: 'uphoneu', title: '收货电话', align: 'center', sort: true}
+                        , {field: 'otime', title: '下单时间', align: 'center', sort: true}
+                        , {field: 'osuretime', title: '付款时间', align: 'center', sort: true}
+                        , {field: 'pstatus', title: '商品状态', align: 'center', sort: true}
+                        , {field: 'right', title: '操作', width: '118', align: 'center', toolbar: '#barDemo'}
+                    ]]
+                    , id: "idsw"
+                });
+            })
+        })
+
+            //单击查询
+            $("#selectpid").click(function () {
+                //进行渲染
+                table.render({
+                    elem: '#demo'
+                    , height: 471
+                    , width: 1113
+                    , url: '/OrderIndormationweb?action=finoid&oid='+$("#oid").val() //数据接口
+                    ,cellMinWidth: 120
+                    ,cols: [[ //表头
+                        {type:'numbers', title: '序号'}
+                        ,{field: 'oid', title: '订单编号',align:'center'}
+                        ,{field: 'smoney', title: '订单总价', align: 'center'}
+                        ,{field: 'pname', title: '商品名称',align:'center'}
+                        ,{field: 'pprice', title: '商品价格', align: 'center'}
+                        ,{field: 'ostatus', title: '交易状态',align:'center'}
+                        ,{field: 'pstatus', title: '商品状态',align:'center',sort:true}
+                        ,{field: 'unameu', title: '收货人', align:'center',sort:true}
+                        ,{field: 'uphoneu', title: '收货电话', align:'center',sort:true}
+                        ,{field: 'otime', title: '下单时间', align:'center',sort:true}
+                        ,{field: 'osuretime', title: '付款时间', align:'center',sort:true}
+                        ,{field: 'pstatus', title: '商品状态',align:'center',sort:true}
+                        ,{field: 'right', title: '操作',width:'118', align:'center',  toolbar: '#barDemo'}
+                    ]]
+                    , id: "idsw"
+                });
+            })
+
+    })
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详细</a>
+</script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./plugins/layui/css/layui.css" media="all">
+</head>
+<style>
+    .divtop{
+        width: 1113px; height: 40px;border: 1px solid #b7d5df;line-height: 40px;margin:auto;margin-top:5px;
+    }
+    .layui-table-box, .layui-table-view{
+        margin:auto;
+    }
+</style>
+<body>
+<div class="divtop">
+    <div class="layui-form-item layui-form" >
+        <div class="layui-inline" >
+            <label class="layui-form-label" >类型名称:</label>
+            <div class="layui-input-inline">
+                <select name="quiz" lay-verify="selecttype" lay-search="" lay-filter="selecttype" id="selecttype">
+
+                </select>
+            </div>
+            <button  class="layui-btn layui-btns layui-btn-normal" id="all">全部查询</button>
+            <button  class="layui-btn layui-btns layui-btn-normal" style="float: right;" id="insert">添加类型</button>
+        </div>
+    </div>
+</div>
+<table id="demo" lay-filter="demo"  ></table>
+<script type="text/html" id="sexTpl">
+    {{#  if(d.tstatus ==="上架"){ }}
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="shangjia" style="background-color: #5cb85c">上架中</a>
+    {{#  } else { }}
+    <a class="layui-btn layui-btn-danger layui-btn-xs"lay-event="xiajia"  style="background-color: #7266BA">未上架</a>
+    {{#  } }}
+</script>
+<script src="plugins/layui/layui.js" charset="utf-8"></script>
+<script src="plugins/layui/jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        $("#all").click(function () {
+            //进行渲染
+            table.render({
+                elem: '#demo'
+                ,height: 471
+                ,width: 1113
+                ,page:true
+                ,url: '/ProductTypeweb?action=layuijson' //数据接口
+                ,cellMinWidth: 140
+                ,cols: [[ //表头
+                    {type:'numbers', title: '序号'}
+                    ,{field: 'tid', title: '类型编号',align:'center'}
+                    ,{field: 'tname', title: '类型名称',align:'center'}
+                    ,{field: 'tstatus', sexTpltitle: '状态',align:'center',templet : '#sexTpl'}
+                    ,{field: 'right', title: '操作', align:'center',  toolbar: '#barDemo'}
+                ]]
+                ,id:"idsw"
+            });
+        })
+        var table=null;
+        layui.use('table', function(){
+            var index = layer.load(2, {time: 10*100}); //又换了种风格，并且设定最长等待10秒
+            table= layui.table;
+            //监听工具条
+            table.on('tool(demo)', function(obj){
+                var data = obj.data;
+                if(obj.event === 'detail'){
+
+                } else if(obj.event === 'del'){
+                    layer.confirm('真的删除行么', function(index){
+                        del(data.studentid);
+                        layer.close(index);
+                    });
+                } else if(obj.event === 'edit'){
+                    layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                }
+                else if(obj.event === 'shangjia'){
+                    $.ajax({
+                        type : "get",
+                        url : "/ProductTypeweb?action=updatestatus",
+                        async : true,
+                        data : {
+                            "tid" : data.tid,
+                            "status" : "未上架"
+                        },
+                        success : function(data) {
+                            if (data.msg == "修改成功") {
+                                //执行重载
+                                table.reload('idsw', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                });
+                            }
+                            layer.msg(data.msg);
+                        }
+                    });
+                }
+                else if(obj.event === 'xiajia'){
+                    $.ajax({
+                        type : "get",
+                        url : "/ProductTypeweb?action=updatestatus",
+                        async : true,
+                        data : {
+                            "tid" : data.tid,
+                            "status" : "上架"
+                        },
+                        success : function(data) {
+                            if (data.msg == "修改成功") {
+                                //执行重载
+                                table.reload('idsw', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                });
+                            }
+                            layer.msg(data.msg);
+                        }
+                    });
+                }
+            });
+            //进行渲染
+            table.render({
+                elem: '#demo'
+                ,height: 471
+                ,width: 1113
+                ,page:true
+                ,url: '/ProductTypeweb?action=layuijson' //数据接口
+                ,cellMinWidth: 140
+                ,cols: [[ //表头
+                    {type:'numbers', title: '序号'}
+                    ,{field: 'tid', title: '类型编号',align:'center'}
+                    ,{field: 'tname', title: '类型名称',align:'center'}
+                    ,{field: 'tstatus', sexTpltitle: '状态',align:'center',templet : '#sexTpl'}
+                    ,{field: 'right', title: '操作',align:'center',  toolbar: '#barDemo'}
+                ]]
+                ,id:"idsw"
+            });
+        });
+        //进行按班级查询
+        var form;
+        layui.use('form', function(){
+            form= layui.form;
+            form.on('select(selecttype)', function(data) {
+                //进行渲染
+                table.render({
+                    elem: '#demo'
+                    ,height: 471
+                    ,width: 1113
+                    ,page:true
+                    ,url: '/ProductTypeweb?action=layuitid&tid='+data.value //数据接口
+                    ,cellMinWidth: 140
+                    ,cols: [[ //表头
+                        {type:'numbers', title: '序号'}
+                        ,{field: 'tid', title: '类型编号',align:'center'}
+                        ,{field: 'tname', title: '类型名称',align:'center'}
+                        ,{field: 'tstatus', sexTpltitle: '状态',align:'center',templet : '#sexTpl'}
+                        ,{field: 'right', title: '操作', align:'center',  toolbar: '#barDemo'}
+                    ]]
+                    ,id:"idsw"
+                });
+            })
+            $.ajax({
+                type:"get",
+                url:"/ProductTypeweb?action=gson",//请求路径
+                success:function(data){//请求成功后的事件
+                    $.each(data,function(index,obj){
+                        var option=$("<option value='"+obj.tid+"'>"+obj.tname+"</option>");
+                        $("#selecttype").append(option);
+                        form.render();
+                    })
+                }
+            })
+        });
+        $("#insert").click(function(){
+            layer.open({
+                type:1
+                ,content:$("#form")
+                ,area:['550px','300px']
+                ,btn: ['添加', '取消'] //只是为了演示
+                ,yes: function(){
+                    if($("#pName").val()==""){
+                        layer.msg("类型名称不能为空");
+                        return;
+                    }
+                    $.ajax({
+                        type:"post"
+                        ,url:"/ProductTypeweb?action=insert"
+                        ,data:{
+                            tname:$("#pName").val(),
+                            tstatus:$("#pstatus").prop("checked")?"上架":"未上架"
+                        }
+                        ,success:function(data){
+                            if (data.msg == "添加成功") {
+                                layer.closeAll();
+                                $("#pName").val("");
+                                //执行重载
+                                table.reload('idsw', {
+                                    page: {
+                                        curr: 1 //重新从第 1 页开始
+                                    }
+                                });
+                            }
+                            layer.msg(data.msg);
+                        }
+                    });
+                }
+                ,btn2: function(){
+                    //关闭
+                    layer.closeAll();
+                    empty();
+                }
+            });
+        });
+    })
+
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详细</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+</script>
+</body>
+<form class="layui-form"  id="form" hidden="hidden">
+    <table>
+        <tr><td><div style="height:30px"></div></td></tr>
+        <tr>
+            <td><div class="layui-form-item">
+                <label class="layui-form-label" style="font-size:18px" >类型名称:</label>
+                <div class="layui-input-inline">
+                    <input type="tel" name="pName" id="pName" lay-verify="required|phone" autocomplete="off" class="layui-input input">
+                </div>
+            </div></td>
+        </tr>
+        <tr>
+            <td>  <label class="layui-form-label">状态</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex" id="pstatus"  title="上架中" checked="">
+                    <input type="radio" name="sex"  title="未上架">
+                </div></td>
+        </tr>
+    </table>
+</form>
+</html>
